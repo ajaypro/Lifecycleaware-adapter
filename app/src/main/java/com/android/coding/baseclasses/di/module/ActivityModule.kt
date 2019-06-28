@@ -27,10 +27,7 @@ class ActivityModule(private val activity: BaseActivity<*>) { // * as we don't k
             networkHelper: NetworkHelper,
             networkService: NetworkService
     ) : MainViewModel = ViewModelProviders.of(activity, ViewModelProviderFactory(MainViewModel::class){
-               MainViewModel(compositeDisposable,
-                       databaseService,
-                       networkHelper,
-                       networkService)
+        MainViewModel(compositeDisposable, databaseService, networkHelper, networkService)
     }).get(MainViewModel::class.java)
 
 
