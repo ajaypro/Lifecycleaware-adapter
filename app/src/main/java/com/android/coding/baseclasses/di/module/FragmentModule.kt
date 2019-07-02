@@ -2,11 +2,13 @@ package com.android.coding.baseclasses.di.module
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.coding.baseclasses.data.local.DatabaseService
 import com.android.coding.baseclasses.data.remote.NetworkService
 import com.android.coding.baseclasses.di.ActivityContext
 import com.android.coding.baseclasses.ui.base.BaseFragment
 import com.android.coding.baseclasses.ui.home.HomeViewModel
+import com.android.coding.baseclasses.ui.home.post.PostAdapter
 import com.android.coding.baseclasses.utils.NetworkHelper
 import com.android.coding.baseclasses.utils.ViewModelProviderFactory
 import dagger.Module
@@ -32,4 +34,12 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
                 networkService,
                 networkHelper)
     }).get(HomeViewModel::class.java)
+
+    @Provides
+    fun providesPostAdapter(): PostAdapter = PostAdapter(fragment.lifecycle, ArrayList())
+
+    @Provides
+    fun providesLinearLayoutManager() = LinearLayoutManager(fragment.context)
+
+
 }

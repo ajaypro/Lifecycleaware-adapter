@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.mindorks.bootcamp.learndagger", appContext.getPackageName());
+        assertEquals("com.android.coding.baseclasses", appContext.getPackageName());
     }
 }

@@ -18,6 +18,7 @@ abstract class BaseViewModel(
     
     protected fun checkInternetConnection(): Boolean = networkHelper.isNetworkConnected
 
+    // created by system which will clear when activity or fragment stops
     override fun onCleared() {
         if(!compositeDisposable.isDisposed){
             compositeDisposable.dispose()
